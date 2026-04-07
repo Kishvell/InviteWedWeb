@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmar Asistencia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="fade-in">
+    <section class="hero">
+        <div class="overlay"></div>
+        <img src="/img/img1.jpeg" class="bg">
+        <div class="content">
+            <h1>Confirma tu asistencia</h1>
+            <form onsubmit="handleSubmit(event)">
+                <input type="text" name="name" placeholder="Tu nombre" required>
+                <input type="number" name="guests" placeholder="Número de invitados" min="1" required>
+                <button type="submit">Enviar</button>
+            </form>
+            <p id="msg"></p>
+            <p class="back" onclick="goTo('index.html')">← Volver</p>
+        </div>
+    </section>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

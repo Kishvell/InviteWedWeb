@@ -1,0 +1,300 @@
+/* RESET Y FUENTES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    font-family: 'Playfair Display', serif;
+    overflow-x: hidden;
+}
+
+.fade-in {
+    animation: fadePage 0.8s forwards;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.8s;
+}
+
+@keyframes fadePage {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* HERO */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+/* TEXTOS */
+.textFade {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 0.5s;
+}
+
+.names {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    margin: 20px 0;
+}
+
+.intro,
+.save,
+.date,
+.place {
+    font-size: 1.5rem;
+    margin: 5px;
+}
+
+.clickable {
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.clickable:hover {
+    transform: scale(1.05);
+    color: #f2c94c;
+}
+
+.line {
+    width: 80px;
+    height: 2px;
+    background: white;
+    margin: 15px auto;
+}
+
+/* SOBRE Y SELLO */
+.envelope {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f9e8e8;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: all 1s;
+}
+
+.flap {
+    width: 100%;
+    height: 100%;
+    background: #e5c4c4;
+    clip-path: polygon(0 0, 100% 0, 50% 50%);
+}
+
+.envelope.open {
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all 1s;
+}
+
+/* SELLO REALISTA CON ANIMACIÓN DE ROTURA */
+.seal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle at 50% 50%, #c0392b, #8e2a2b);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Great Vibes', cursive;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 20;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    transform-origin: center center;
+    /* Mantener el sello centrado */
+}
+
+/* Texto dentro del sello */
+.seal span {
+    position: relative;
+    z-index: 2;
+}
+
+/* ANIMACIÓN DEL SELLO: DESVANECER SUAVE Y ESCALA NATURAL */
+@keyframes smoothSeal {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+    20% {
+        transform: translate(-50%, -50%) scale(1.05);
+        opacity: 0.95;
+    }
+
+    40% {
+        transform: translate(-50%, -50%) scale(0.98);
+        opacity: 0.9;
+    }
+
+    60% {
+        transform: translate(-50%, -50%) scale(1.02);
+        opacity: 0.7;
+    }
+
+    80% {
+        transform: translate(-50%, -50%) scale(0.97);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+}
+
+.seal.break {
+    animation: smoothSeal 1.2s ease-in-out forwards;
+}
+
+/* FORMULARIO */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+input,
+button {
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    background: #f2c94c;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background: #e6b800;
+}
+
+/* COUNTDOWN */
+.countdown {
+    display: flex;
+    gap: 20px;
+    font-size: 3rem;
+    font-weight: bold;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.countdown div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.countdown span {
+    font-size: 4rem;
+    display: inline-block;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.flip {
+    transform: rotateX(360deg);
+    opacity: 0;
+    animation: flipIn 0.5s forwards;
+}
+
+@keyframes flipIn {
+    0% {
+        transform: rotateX(180deg);
+        opacity: 0;
+    }
+
+    50% {
+        transform: rotateX(90deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+/* BOTÓN VOLVER */
+.back {
+    margin-top: 40px;
+    cursor: pointer;
+    color: white;
+    text-decoration: underline;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+.back:hover {
+    transform: scale(1.1);
+    color: #f2c94c;
+}
+
+/* FADE IN DE TEXTOS */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
